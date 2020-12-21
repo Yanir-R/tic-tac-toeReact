@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+
+// return on each Click the value of Square
 function Square(props) {
   return (
     <button className="square" onClick={props.onClick}>
@@ -9,7 +11,7 @@ function Square(props) {
     </button>
   )
 }
-
+// Describe Board Game + set boolean to setup user 
 class Board extends React.Component {
   constructor(props) {
     super(props);
@@ -19,6 +21,7 @@ class Board extends React.Component {
     };
   }
 
+  // handle which turn is it
   handleClick(i) {
     const squares = this.state.squares.slice();
     squares[i] = this.state.xIsNext ? 'X': 'O';
@@ -57,7 +60,7 @@ class Board extends React.Component {
         <div className="board-row">
           {this.renderSquare(0)}{this.renderSquare(1)}{this.renderSquare(2)}
         </div>
-        <div className="board-row">
+        <div classNagitme="board-row">
           {this.renderSquare(3)}{this.renderSquare(4)}{this.renderSquare(5)}
         </div>
         <div className="board-row">
