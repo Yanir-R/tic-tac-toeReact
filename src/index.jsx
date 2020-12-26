@@ -13,17 +13,18 @@ function Square(props) {
 }
 // Describe Board Game + set boolean to setup user 
 class Board extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+ 
+    state = {
       squares: Array(9).fill(null),
       xIsNext: true,
     };
-  }
+  
 
-  // handle which turn is it
   handleClick(i) {
-    const squares = this.state.squares.slice();
+    const squares = this.state.squares
+    if (calculateWinner(squares) || squares[i]) {
+      return;
+    }
     squares[i] = this.state.xIsNext ? 'X': 'O';
     this.setState({
       squares: squares,
